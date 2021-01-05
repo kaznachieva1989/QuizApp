@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/main_nav"
+        android:title="Главная"
+        android:icon="@drawable/ic_main_f"/>
+    <item
+        android:id="@+id/history_nav"
+        android:title="История"
+        android:icon="@drawable/ic_history_map_f"/>
+    <item
+        android:id="@+id/settings_nav"
+        android:title="Настройки"
+        android:icon="@drawable/ic_settings_inactive_f"/>
+
+</menu>
