@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kg.nurzhamal.quizapp.R;
@@ -16,12 +17,14 @@ import kg.nurzhamal.quizapp.data.Questions_boolean;
 import kg.nurzhamal.quizapp.data.Questions_multi;
 import kg.nurzhamal.quizapp.databinding.QuestionsBooleanItemsBinding;
 import kg.nurzhamal.quizapp.databinding.QuestionsMultiItemBinding;
+import kg.nurzhamal.quizapp.model.Question;
 
 public class QuestionsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<Item_for_type_questions> items;
+    private List<Question> items = new ArrayList<>();
 
-    public QuestionsAdapter(List<Item_for_type_questions> items) {
-        this.items = items;
+    public void setItems(List<Question> items) {
+        this.items.addAll(items);
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -39,11 +42,9 @@ public class QuestionsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (getItemViewType(position) == 0) {
-            Questions_multi questions_multi = (Questions_multi) items.get(position).getObject();
-            ((QuestionsMultiViewHolder) holder).mBindingMulti.setQuestions(questions_multi);
+            ((QuestionsMultiViewHolder) holder).onBind(items.get(position));
         } else {
-            Questions_boolean questions_boolean = (Questions_boolean) items.get(position).getObject();
-            ((QuestionsBoolean_ViewHolder) holder).mBindingBoolean.setQuestionsForBoolean(questions_boolean);
+            ((QuestionsBoolean_ViewHolder) holder).onBind(items.get(position));
         }
     }
 
@@ -54,7 +55,12 @@ public class QuestionsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public int getItemViewType(int position) {
-        return items.get(position).getType();
+        if (items.get(position).getType().equals("multiple")) {
+            return 0;
+        } else if (items.get(position).getType().equals("boolean")) {
+            return 1;
+        }
+        return 9;
     }
 
     public static class QuestionsMultiViewHolder extends RecyclerView.ViewHolder {
@@ -64,6 +70,10 @@ public class QuestionsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             super(bindingMulti.getRoot());
             mBindingMulti = bindingMulti;
         }
+
+        public void onBind(Question q) {
+            mBindingMulti.setQuestions(q);
+        }
     }
 
     public static class QuestionsBoolean_ViewHolder extends RecyclerView.ViewHolder {
@@ -72,6 +82,10 @@ public class QuestionsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         public QuestionsBoolean_ViewHolder(@NonNull QuestionsBooleanItemsBinding bindingBoolean) {
             super(bindingBoolean.getRoot());
             mBindingBoolean = bindingBoolean;
+        }
+
+        public void onBind(Question q) {
+            mBindingBoolean.setQuestionsForBoolean(q);
         }
     }
 }

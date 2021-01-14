@@ -9,6 +9,10 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.List;
+
+import kg.nurzhamal.quizapp.data.IQuizApiClient;
+import kg.nurzhamal.quizapp.model.Question;
 import kg.nurzhamal.quizapp.ui.adapter.MainViewPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

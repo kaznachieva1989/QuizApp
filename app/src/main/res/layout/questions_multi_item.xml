@@ -6,7 +6,7 @@
 
         <variable
             name="questions"
-            type="kg.nurzhamal.quizapp.data.Questions_multi" />
+            type="kg.nurzhamal.quizapp.model.Question" />
 
     </data>
 
@@ -48,7 +48,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="40dp"
             android:gravity="center"
-            android:text="@{questions.questions}"
+            android:text="@{questions.question}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/seek_bar_category" />
@@ -63,7 +63,7 @@
             android:inputType="textCapSentences"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@{String.valueOf(questions.answers1)}"
+            android:text="@{String.valueOf(questions.incorrectAnswers.get(0))}"
             android:textAlignment="center"
             android:textColor="#E5E5E5"
             app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +78,7 @@
             android:background="@drawable/bg_button2"
             android:gravity="center"
             android:inputType="textCapSentences"
-            android:text="@{String.valueOf(questions.answers2)}"
+            android:text="@{String.valueOf(questions.incorrectAnswers.get(1))}"
             android:textAlignment="center"
             android:textColor="#E5E5E5"
             app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +93,7 @@
             android:background="@drawable/bg_button3"
             android:gravity="center"
             android:inputType="textCapSentences"
-            android:text="@{String.valueOf(questions.answers3)}"
+            android:text="@{String.valueOf(questions.incorrectAnswers.get(2))}"
             android:textAlignment="center"
             android:textColor="#E5E5E5"
             app:layout_constraintEnd_toEndOf="parent"
@@ -108,7 +108,7 @@
             android:background="@drawable/bg_button4"
             android:gravity="center"
             android:inputType="textCapSentences"
-            android:text="@{String.valueOf(questions.answers4)}"
+            android:text="@{String.valueOf(questions.correctAnswer)}"
             android:textAlignment="center"
             android:textColor="#6979F8"
             app:layout_constraintEnd_toEndOf="parent"

@@ -5,7 +5,7 @@
 
         <variable
             name="questionsForBoolean"
-            type="kg.nurzhamal.quizapp.data.Questions_boolean" />
+            type="kg.nurzhamal.quizapp.model.Question" />
 
     </data>
 
@@ -47,7 +47,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="40dp"
             android:gravity="center"
-            android:text="@{questionsForBoolean.questions_b}"
+            android:text="@{questionsForBoolean.question}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/seek_bar_category_b" />
@@ -62,7 +62,7 @@
             android:inputType="textCapSentences"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@{String.valueOf(questionsForBoolean.answers1_b)}"
+            android:text="@{String.valueOf(questionsForBoolean.incorrectAnswers.get(0))}"
             android:textAlignment="center"
             android:textColor="#E5E5E5"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +77,7 @@
             android:background="@drawable/bg_button2"
             android:gravity="center"
             android:inputType="textCapSentences"
-            android:text="@{String.valueOf(questionsForBoolean.answers2_b)}"
+            android:text="@{String.valueOf(questionsForBoolean.correctAnswer)}"
             android:textAlignment="center"
             android:textColor="#E5E5E5"
             app:layout_constraintEnd_toEndOf="parent"
