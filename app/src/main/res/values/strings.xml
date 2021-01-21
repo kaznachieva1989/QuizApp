@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">QuizApp</string>
+    <string name="contentdesription">contentdescription</string>
+    <string name="category_result">category_result</string>
+    <string name="result_difficulty">resultDifficulty</string>
+    <string name="result_correct_ans">resultCorrectAns</string>
+    <string name="result_tv">resultTv</string>
+    <string name="btn_finish_text">btnFinish</string>
+    <string name="history_category">historyCategory</string>
+    <string name="history_text_vivew_category">historyTextViewCategory</string>
+    <string name="history_text_view_category" />
+    <string name="correct_ans">correctAns</string>
+    <string name="text_view_correct_ans">correctAns</string>
+    <string name="history_difficulty">historyDifficulty</string>
+    <string name="text_view_difficulty">textViewDifficulty</string>
+    <string name="text_view_data">textViewData</string>
 </resources>

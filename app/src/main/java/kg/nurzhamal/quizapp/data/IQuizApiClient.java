@@ -1,5 +1,7 @@
 package kg.nurzhamal.quizapp.data;
 
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import kg.nurzhamal.quizapp.core.IBaseCallBack;
@@ -12,9 +14,9 @@ public interface IQuizApiClient {
 
     void getCategory(CategoryCallBack callBack);
 
-    interface QuestionsCallBack extends IBaseCallBack<List<Question>> {
+    interface QuestionsCallBack extends IBaseCallBack<ArrayList<Question>> {
         @Override
-        void onSuccess(List<Question> result);
+        void onSuccess(ArrayList<Question> result);
 
         @Override
         void onFailure(Exception e);

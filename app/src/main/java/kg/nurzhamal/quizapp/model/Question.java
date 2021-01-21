@@ -26,6 +26,43 @@ public class Question {
     @Expose
     private ArrayList<String> incorrectAnswers = null;
 
+    private boolean isClicked;
+    private boolean isAnswerTrue;
+    private int selectAnswerPosition = -1;
+    private int userChoisePos = 99;
+
+    public int getUserChoisePos() {
+        return userChoisePos;
+    }
+
+    public void setUserChoisePos(int userChoisePos) {
+        this.userChoisePos = userChoisePos;
+    }
+
+    public int getSelectAnswerPosition() {
+        return selectAnswerPosition;
+    }
+
+    public void setSelectAnswerPosition(int selectAnswerPosition) {
+        this.selectAnswerPosition = selectAnswerPosition;
+    }
+
+    public boolean isClicked() {
+        return isClicked;
+    }
+
+    public void setClicked(boolean clicked) {
+        isClicked = clicked;
+    }
+
+    public boolean isAnswerTrue() {
+        return isAnswerTrue;
+    }
+
+    public void setAnswerTrue(boolean answerTrue) {
+        isAnswerTrue = answerTrue;
+    }
+
     public String getCategory() {
         return category;
     }
@@ -85,5 +122,6 @@ public class Question {
                 ", incorrectAnswers=" + incorrectAnswers +
                 '}';
     }
+
 }
 

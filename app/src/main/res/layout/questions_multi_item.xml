@@ -4,10 +4,25 @@
 
     <data>
 
+        <import type="android.view.View" />
+
+        <import type="android.text.Html" />
+
+        <variable
+            name="listener"
+            type="kg.nurzhamal.quizapp.ui.adapter.QuestionsAdapter" />
+
         <variable
             name="questions"
             type="kg.nurzhamal.quizapp.model.Question" />
 
+        <variable
+            name="position"
+            type="int" />
+
+        <variable
+            name="holderMulti"
+            type="kg.nurzhamal.quizapp.ui.adapter.QuestionsAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,121 +30,82 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/theme_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="sans-serif-black"
-            android:gravity="center"
-            android:text="Geography"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <SeekBar
-            android:id="@+id/seek_bar_category"
-            android:layout_width="270dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:foregroundGravity="center"
-            android:theme="@style/Widget.AppCompat.SeekBar"
-            android:thumbTint="#BE52F2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/theme_category" />
-
-        <TextView
             android:id="@+id/questions_multi"
             android:layout_width="300dp"
             android:layout_height="100dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="40dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="20dp"
             android:gravity="center"
             android:text="@{questions.question}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/seek_bar_category" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/button_answer1"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/bg_button1"
+            android:background="@drawable/bg_button4"
             android:gravity="center"
             android:inputType="textCapSentences"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:clickable="@{questions.clicked ? false : true}"
             android:text="@{String.valueOf(questions.incorrectAnswers.get(0))}"
             android:textAlignment="center"
-            android:textColor="#E5E5E5"
+            android:textColor="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/questions_multi" />
 
         <Button
             android:id="@+id/button_answer2"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/bg_button2"
+            android:background="@drawable/bg_button4"
+            android:clickable="@{questions.clicked ? false : true}"
             android:gravity="center"
             android:inputType="textCapSentences"
             android:text="@{String.valueOf(questions.incorrectAnswers.get(1))}"
             android:textAlignment="center"
-            android:textColor="#E5E5E5"
+            android:textColor="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_answer1" />
 
         <Button
             android:id="@+id/button_answer3"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/bg_button3"
+            android:background="@drawable/bg_button4"
             android:gravity="center"
             android:inputType="textCapSentences"
+            android:clickable="@{questions.clicked ? false : true}"
             android:text="@{String.valueOf(questions.incorrectAnswers.get(2))}"
             android:textAlignment="center"
-            android:textColor="#E5E5E5"
+            android:textColor="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_answer2" />
 
         <Button
             android:id="@+id/button_answer4"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_button4"
             android:gravity="center"
             android:inputType="textCapSentences"
+            android:clickable="@{questions.clicked ? false : true}"
             android:text="@{String.valueOf(questions.correctAnswer)}"
             android:textAlignment="center"
-            android:textColor="#6979F8"
+            android:textColor="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_answer3" />
-
-        <Button
-            android:id="@+id/skip"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/bg_skip"
-            android:gravity="center"
-            android:inputType="textCapSentences"
-            android:text="Skip"
-            android:textAlignment="center"
-            android:textColor="#E5E5E5"
-            android:textSize="17sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_answer4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

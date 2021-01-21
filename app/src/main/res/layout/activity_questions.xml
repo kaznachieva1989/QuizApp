@@ -3,6 +3,14 @@
 
     <data>
 
+        <variable
+            name="pos"
+            type="int" />
+
+        <variable
+            name="qLayout"
+            type="kg.nurzhamal.quizapp.QuestionViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,11 +20,81 @@
         android:layout_height="match_parent"
         tools:context=".QuestionsActivity">
 
+        <ImageView
+            android:id="@+id/back_iv"
+            android:layout_width="7dp"
+            android:layout_height="12.9dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/theme_category_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:text="Geography"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="170dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="5dp"
+            android:indeterminateDrawable="@drawable/progess_bar_back"
+            android:progress="@{pos}"
+            android:progressDrawable="@drawable/progess_bar_back"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/theme_category_b" />
+
+        <TextView
+            android:id="@+id/progress_tv"
+            android:layout_width="30dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="5dp"
+            android:textSize="10sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progress_bar" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/questions_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:nestedScrollingEnabled="true" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/skip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress_tv" />
+
+        <Button
+            android:id="@+id/skip"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/bg_skip"
+            android:gravity="center"
+            android:inputType="textCapSentences"
+            android:text="Skip"
+            android:textAlignment="center"
+            android:textColor="#E5E5E5"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/questions_recycler" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

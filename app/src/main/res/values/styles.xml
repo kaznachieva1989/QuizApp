@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="difficulty">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/design_default_color_primary_dark</item>
+    </style>
+
+    <style name="btn_finish_text">btnFinishText</style>
+
+    <style name="history_text_view_category">historyTextViewCategory</style>
+
+    <style name="correct_ans">correctAns</style>
+
+    <style name="text_view_data">textViewData</style>
+</resources>
