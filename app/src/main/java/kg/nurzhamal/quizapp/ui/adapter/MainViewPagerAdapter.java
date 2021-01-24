@@ -20,7 +20,7 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
 
         switch (position) {
-            case 3:
+            case 2:
                 fragment = new SettingsFragment();
                 break;
             case 1:

@@ -15,7 +15,7 @@ public class HistoryStorage implements IHistoryStorage {
     }
 
     @Override
-    public void delete(int id) {
+    public void deleteById(int id) {
 
     }
 

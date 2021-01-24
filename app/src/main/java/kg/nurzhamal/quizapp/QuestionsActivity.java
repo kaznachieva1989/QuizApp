@@ -2,7 +2,6 @@ package kg.nurzhamal.quizapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -14,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,9 @@ public class QuestionsActivity extends AppCompatActivity implements QuestionsAda
     QuestionsAdapter questionsAdapter;
     List<Question> quizResponse;
 
+    public static final String CORRECT_ANSWERS = "correct_answers";
+    public static final String QUESTIONS = "questions";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +51,8 @@ public class QuestionsActivity extends AppCompatActivity implements QuestionsAda
         questionViewModel = ViewModelProviders.of(this).get(QuestionViewModel.class);
         getData();
 
+        lastQuestion();
+
         binding.backIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +63,11 @@ public class QuestionsActivity extends AppCompatActivity implements QuestionsAda
         binding.skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                questionViewModel.skip();
+                startActivity(new Intent(QuestionsActivity.this, ResultActivity.class));
+                if (position > clickedPosition){
+                    questionViewModel.skip(position);
+                }
+                binding.questionsRecycler.scrollToPosition(position + 1);
             }
         });
 
@@ -93,9 +103,19 @@ public class QuestionsActivity extends AppCompatActivity implements QuestionsAda
         });
     }
 
+    private void lastQuestion() {
+        questionViewModel.isLast.observe(this, correctA -> {
+            Intent intent = new Intent(QuestionsActivity.this, ResultActivity.class);
+            intent.putExtra(CORRECT_ANSWERS, correctA);
+            intent.putExtra(QUESTIONS,new Gson().toJson(questionViewModel.questions));
+            startActivity(intent);
+            finish();
+        });
+    }
+
     private void getData() {
         questionViewModel.getQuestions(questionAmount, categoryId, difficulty);
-        questionViewModel.quizResponseMutableLiveData.observe(this, quizResponse -> {
+        questionViewModel.questionsMutableLiveData.observe(this, quizResponse -> {
             questionsAdapter.setQuestionsList(quizResponse);
             QuestionsActivity.this.quizResponse = quizResponse;
             binding.progressBar.setMax(quizResponse.size());
@@ -123,6 +143,7 @@ public class QuestionsActivity extends AppCompatActivity implements QuestionsAda
     @Override
     public void onClickOnQuestion(int position, int answerPosition) {
         questionViewModel.onAnswerClick(position, answerPosition);
+        questionViewModel.moveToQuestionFinish(position);
     }
 
     @Override

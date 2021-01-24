@@ -14,20 +14,21 @@ import kg.nurzhamal.quizapp.data.IQuizApiClient;
 import kg.nurzhamal.quizapp.model.Question;
 
 public class QuestionViewModel extends ViewModel {
-    public MutableLiveData<List<Question>> quizResponseMutableLiveData = new MutableLiveData<>();
+
+    public MutableLiveData<List<Question>> questionsMutableLiveData = new MutableLiveData<>();
     MutableLiveData<Integer> currentQuestionPosition = new MutableLiveData<>();
     ArrayList<String> categories = new ArrayList<>();
     public ArrayList<Question> questions;
     MutableLiveData<Integer> isLast = new MutableLiveData<>();
     SingleLiveEvent<Void> finishEvent = new SingleLiveEvent<>();
     Integer count;
+    int correctAnswers;
 
     public QuestionViewModel() {
-        currentQuestionPosition.setValue(0);
+ //       currentQuestionPosition.setValue(0);
         this.count = 0;
     }
 
-    int correctAnswers;
 
     public void getQuestions(Integer amount, Integer category, String difficulty) {
         QuizApp.repository.getQuestions(new IQuizApiClient.QuestionsCallBack() {
@@ -38,7 +39,8 @@ public class QuestionViewModel extends ViewModel {
                 }
                 questions = result;
                 Log.d("response", String.valueOf(questions.get(0).getIncorrectAnswers().size()));
-                quizResponseMutableLiveData.setValue(questions);
+                questionsMutableLiveData.setValue(questions);
+                currentQuestionPosition.setValue(0);
             }
 
             @Override
@@ -48,11 +50,11 @@ public class QuestionViewModel extends ViewModel {
         }, amount, category, difficulty);
     }
 
-    public void moveToQuestionFinish() {
+    public void moveToQuestionFinish(int position) {
         if (currentQuestionPosition.getValue() == questions.size() - 1) {
             finish();
         } else {
-            currentQuestionPosition.setValue(currentQuestionPosition.getValue());
+            currentQuestionPosition.setValue(position);
         }
     }
 
@@ -60,13 +62,12 @@ public class QuestionViewModel extends ViewModel {
         isLast.setValue(correctAnswers);
     }
 
-    void skip() {
-        if (currentQuestionPosition.getValue() == questions.size() - 1) {
+    void skip(int currentQuestionPosition) {
+        if (currentQuestionPosition == questions.size() - 1) {
             return;
         } else {
-            questions.get(currentQuestionPosition.getValue()).setClicked(true);
-            quizResponseMutableLiveData.setValue(questions);
-            currentQuestionPosition.setValue(++count);
+            questions.get(currentQuestionPosition).setClicked(true);
+            questionsMutableLiveData.setValue(questions);
         }
     }
 
@@ -86,7 +87,6 @@ public class QuestionViewModel extends ViewModel {
             }
             questions.set(questionPosition, question);
 
-
             new CountDownTimer(500, 500) {
                 @Override
                 public void onTick(long millisUntilFinished) {
@@ -94,7 +94,7 @@ public class QuestionViewModel extends ViewModel {
 
                 @Override
                 public void onFinish() {
-                    quizResponseMutableLiveData.setValue(questions);
+                    questionsMutableLiveData.setValue(questions);
                 }
             }.start();
 

@@ -1,9 +1,11 @@
 package kg.nurzhamal.quizapp.ui.history;
 
+import kg.nurzhamal.quizapp.QuizApp;
 import kg.nurzhamal.quizapp.core.IHistoryStorage;
 import kg.nurzhamal.quizapp.model.QuizResult;
 
 public class HistoryStorage implements IHistoryStorage {
+
     @Override
     public QuizResult getQuizResult(int id) {
         return null;
@@ -15,8 +17,8 @@ public class HistoryStorage implements IHistoryStorage {
     }
 
     @Override
-    public void delete(int id) {
-
+    public void deleteById(int id) {
+        QuizApp.quizDataBase.quizDao().deleteById(id);
     }
 
     @Override

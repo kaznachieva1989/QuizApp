@@ -1,27 +1,46 @@
 package kg.nurzhamal.quizapp.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
 import java.util.Date;
 import java.util.List;
 
-public class QuizResult {
-    private final boolean isWin;
-    private final String category;
-    private final String difficulty;
-    private final String correctAns;
-    private final String resultPercentage;
-    private final int AmountCorrectAns;
+import kg.nurzhamal.quizapp.db.converter.DateConverter;
+import kg.nurzhamal.quizapp.db.converter.QuestionsConverter;
 
-    public QuizResult(boolean isWin, String category, String difficulty, String correctAns, String resultPercentage, int amountCorrectAns) {
-        this.isWin = isWin;
+@Entity(tableName = "QResult")
+public class QuizResult {
+
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+    @ColumnInfo(name = "category")
+    private final String category;
+    @ColumnInfo(name = "difficulty")
+    private final String difficulty;
+    @ColumnInfo(name = "correctAnswer")
+    private final int correctAnswer;
+    @TypeConverters({DateConverter.class})
+    private Date createdAt;
+    @TypeConverters({QuestionsConverter.class})
+    private List<Question> questions;
+
+    public QuizResult(String category, String difficulty, int correctAnswer, Date createdAt, List<Question> questions) {
         this.category = category;
         this.difficulty = difficulty;
-        this.correctAns = correctAns;
-        this.resultPercentage = resultPercentage;
-        AmountCorrectAns = amountCorrectAns;
+        this.correctAnswer = correctAnswer;
+        this.createdAt = createdAt;
+        this.questions = questions;
     }
 
-    public boolean isWin() {
-        return isWin;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCategory() {
@@ -32,17 +51,24 @@ public class QuizResult {
         return difficulty;
     }
 
-    public String getCorrectAns() {
-        return correctAns;
+    public int getCorrectAnswer() {
+        return correctAnswer;
     }
 
-    public String getResultPercentage() {
-        return resultPercentage;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public int getAmountCorrectAns() {
-        return AmountCorrectAns;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
 }
 

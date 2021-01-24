@@ -1,5 +1,6 @@
 package kg.nurzhamal.quizapp.core;
 
+import kg.nurzhamal.quizapp.QuizApp;
 import kg.nurzhamal.quizapp.model.QuizResult;
 
 public interface IHistoryStorage {
@@ -8,7 +9,8 @@ public interface IHistoryStorage {
 
     int saveQuizResult(QuizResult quizResult);
 
-    void delete(int id);
+    void deleteById(int id);
+
 
     void deleteAll();
 }

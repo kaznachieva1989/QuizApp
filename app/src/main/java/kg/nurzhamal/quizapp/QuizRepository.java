@@ -4,14 +4,14 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 import kg.nurzhamal.quizapp.core.IHistoryStorage;
 import kg.nurzhamal.quizapp.data.IQuizApiClient;
 import kg.nurzhamal.quizapp.model.Category;
 import kg.nurzhamal.quizapp.model.Question;
+import kg.nurzhamal.quizapp.model.QuizResult;
 
-public class QuizRepository implements IQuizApiClient {
+public class QuizRepository implements IQuizApiClient, IHistoryStorage {
     private IQuizApiClient quizApiClient;
     private IHistoryStorage historyStorage;
     Question question = new Question();
@@ -60,5 +60,25 @@ public class QuizRepository implements IQuizApiClient {
                 callBack.onFailure(e);
             }
         });
+    }
+
+    @Override
+    public QuizResult getQuizResult(int id) {
+        return historyStorage.getQuizResult(id);
+    }
+
+    @Override
+    public int saveQuizResult(QuizResult quizResult) {
+        return historyStorage.saveQuizResult(quizResult);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        historyStorage.deleteById(id);
+    }
+
+    @Override
+    public void deleteAll() {
+        historyStorage.deleteAll();
     }
 }
