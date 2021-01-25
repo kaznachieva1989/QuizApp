@@ -1,8 +1,5 @@
 package kg.nurzhamal.quizapp.data;
 
-import android.util.Log;
-
-import kg.nurzhamal.quizapp.core.IBaseCallBack;
 import kg.nurzhamal.quizapp.model.Category;
 import kg.nurzhamal.quizapp.model.QuizResponse;
 import retrofit2.Call;
@@ -21,27 +18,26 @@ public class QuizApiClient implements IQuizApiClient {
 
     @Override
     public void getQuestions(QuestionsCallBack callBack,Integer amount, Integer category, String difficulty) {
-        Call<QuizResponse> call = quizApi.getQuestions(amount, category, difficulty);
-
-        call.enqueue(new Callback<QuizResponse>() {
-            @Override
-            public void onResponse(Call<QuizResponse> call, Response<QuizResponse> response) {
-                if (response.isSuccessful()) {
-                    if (response.body() != null) {
-                        callBack.onSuccess(response.body().getResults());
-                    } else {
-                        callBack.onFailure(new Exception("Response is Empty" + response.code()));
+        quizApi.getQuestions(amount, category == 99 ? null : category, difficulty.equals("any type") ? null : difficulty)
+                .enqueue(new Callback<QuizResponse>() {
+                    @Override
+                    public void onResponse(Call<QuizResponse> call, Response<QuizResponse> response) {
+                        if (response.isSuccessful()) {
+                            if (response.body() != null) {
+                                callBack.onSuccess(response.body().getResults());
+                            } else {
+                                callBack.onFailure(new Exception("Response is Empty" + response.code()));
+                            }
+                        } else {
+                            callBack.onFailure(new Exception("Response is Empty" + response.code()));
+                        }
                     }
-                } else {
-                    callBack.onFailure(new Exception("Response is Empty" + response.code()));
-                }
-            }
 
-            @Override
-            public void onFailure(Call<QuizResponse> call, Throwable t) {
-                callBack.onFailure(new Exception(t));
-            }
-        });
+                    @Override
+                    public void onFailure(Call<QuizResponse> call, Throwable t) {
+                        callBack.onFailure(new Exception(t));
+                    }
+                });
     }
     @Override
     public void getCategory(CategoryCallBack callBack){

@@ -31,7 +31,7 @@ public class QuestionsActivity extends AppCompatActivity implements QuestionsAda
     int categoryId;
     int position;
     int questionAmount;
-    String difficulty;
+    String difficulty = "any type";
     int clickedPosition;
     QuestionsAdapter questionsAdapter;
     List<Question> quizResponse;
@@ -44,7 +44,7 @@ public class QuestionsActivity extends AppCompatActivity implements QuestionsAda
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_questions);
 
-        categoryId = getIntent().getIntExtra(MainFragment.CATEGORY, -1);
+        categoryId = getIntent().getIntExtra(MainFragment.CATEGORY, 99);
         difficulty = getIntent().getStringExtra(MainFragment.DIFFCULTY);
         questionAmount = getIntent().getIntExtra(MainFragment.ID,-1);
         initRecycler();

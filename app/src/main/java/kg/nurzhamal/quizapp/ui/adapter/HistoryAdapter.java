@@ -1,7 +1,6 @@
 package kg.nurzhamal.quizapp.ui.adapter;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -22,7 +21,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     private OnPopupMenuClickListener onPopupMenuClick;
     List<QuizResult> quizResults = new ArrayList<>();
 
-    public void setQuizResults(ArrayList<QuizResult> quizResults) {
+    public void setQuizResults(List<QuizResult> quizResults) {
         this.quizResults = quizResults;
         notifyDataSetChanged();
     }
@@ -59,12 +58,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
             super(binding.getRoot());
             this.binding = binding;
             binding.setHandlers(onPopupMenuClick);
-            binding.popUpMenu.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onPopupMenuClick.onPopupMenuClick(v, getAdapterPosition());
-                }
-            });
+            binding.popUpMenu.setOnClickListener(v -> onPopupMenuClick.onPopupMenuClick(v, getAdapterPosition()));
         }
     }
 }

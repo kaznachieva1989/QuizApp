@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,11 +37,9 @@ public class SettingsFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(SettingsViewModel.class);
 
-        binding.layout4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                QuizApp.quizDataBase.quizDao().deleteAll();
-            }
+        binding.layout4.setOnClickListener(v -> {
+            QuizApp.quizDataBase.quizDao().deleteAll();
+            Toast.makeText(requireActivity(), "history is deleted", Toast.LENGTH_LONG).show();
         });
     }
 

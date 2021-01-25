@@ -1,5 +1,7 @@
 package kg.nurzhamal.quizapp.model;
 
+import android.text.Html;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -88,7 +90,7 @@ public class Question {
     }
 
     public String getQuestion() {
-        return question;
+        return Html.fromHtml(question).toString();
     }
 
     public void setQuestion(String question) {

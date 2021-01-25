@@ -1,5 +1,6 @@
 package kg.nurzhamal.quizapp.db;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -22,7 +23,7 @@ public interface QuizDao {
     void delete(QuizResult quizResult);
 
     @Query("SELECT * FROM qresult")
-    List<QuizResult> getAll();
+    LiveData<List<QuizResult>> getAll();
 
     @Query("DELETE FROM qresult")
     void deleteAll();

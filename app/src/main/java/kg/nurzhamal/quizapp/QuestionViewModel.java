@@ -38,7 +38,6 @@ public class QuestionViewModel extends ViewModel {
                     categories.add(result.get(i).getCategory());
                 }
                 questions = result;
-                Log.d("response", String.valueOf(questions.get(0).getIncorrectAnswers().size()));
                 questionsMutableLiveData.setValue(questions);
                 currentQuestionPosition.setValue(0);
             }

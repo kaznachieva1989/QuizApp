@@ -10,9 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import kg.nurzhamal.quizapp.QuizApp;
 import kg.nurzhamal.quizapp.R;
@@ -45,9 +47,12 @@ public class HistoryFragment extends Fragment {
 
         historyAdapter = new HistoryAdapter();
         binding.recyclerHistory.setAdapter(historyAdapter);
-        historyAdapter.setQuizResults((ArrayList<QuizResult>) QuizApp.quizDataBase.quizDao().getAll());
         historyAdapter.setOnPopupMenuClick(this::showPopUpMenu);
+        subscribeHistory();
+    }
 
+    private void subscribeHistory() {
+        mViewModel.historyQuizResult.observe(requireActivity(), data -> historyAdapter.setQuizResults(data));
     }
 
     private void showPopUpMenu(View view, int position) {
@@ -58,7 +63,7 @@ public class HistoryFragment extends Fragment {
                 .setOnMenuItemClickListener(item -> {
                     switch (item.getItemId()) {
                         case R.id.delete:
-                            mViewModel.deleteById.call();
+                            mViewModel.popupMenuDelete(position);
                             return true;
                         case R.id.no:
                             mViewModel.share.call();

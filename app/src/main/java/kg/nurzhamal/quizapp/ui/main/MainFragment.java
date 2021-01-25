@@ -5,6 +5,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.icu.text.UnicodeSetSpanner;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -39,7 +40,7 @@ public class MainFragment extends Fragment {
     public static final String DIFFCULTY = "diffculty";
     public static final String ID = "id";
 
-    Integer mCategory;
+    Integer mCategory = null;
     List<String> list = new ArrayList<>();
 
     ArrayAdapter<String> spinnerAdapter;
@@ -133,16 +134,17 @@ public class MainFragment extends Fragment {
             public void onChanged(Category category) {
                 List<TriviaCategory> categoryList = category.getTriviaCategories();
                 List<String> name_category = new ArrayList<>();
-                for (TriviaCategory triviaCategory : categoryList) {
+                for (TriviaCategory triviaCategory : categoryList)
                     name_category.add(triviaCategory.getName());
-                }
+                name_category.add(0, "Any type");
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), R.layout.support_simple_spinner_dropdown_item, name_category);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 mainFragmentBinding.spinnerServices.setAdapter(adapter);
                 mainFragmentBinding.spinnerServices.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        mCategory = category.getTriviaCategories().get(position).getId();
+                        if (position == 0) mCategory = null;
+                        else mCategory = category.getTriviaCategories().get(position).getId();
                     }
 
                     @Override

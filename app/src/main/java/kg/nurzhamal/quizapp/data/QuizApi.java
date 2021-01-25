@@ -10,7 +10,7 @@ public interface QuizApi {
     @GET("api.php")
     Call<QuizResponse> getQuestions(
             @Query("amount") int amount,
-            @Query("category") int category,
+            @Query("category") Integer category,
             @Query("difficulty") String difficulty
     );
 

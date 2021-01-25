@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="13dp"
-                android:text="@{ `Correct answers: ` + String.valueOf(quizResult.correctAnswer) + `/ 10`}"
+                android:text="@{ `Correct answers: ` + String.valueOf(quizResult.correctAnswer) + `/` + String.valueOf(quizResult.questions.size())}"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/history_category" />
