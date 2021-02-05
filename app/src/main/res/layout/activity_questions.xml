@@ -18,7 +18,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".QuestionsActivity">
+        tools:context=".QuestionsActivity"
+        android:background="?attr/background_question_fragment">
 
         <ImageView
             android:id="@+id/back_iv"
@@ -38,7 +39,7 @@
             android:fontFamily="sans-serif-black"
             android:gravity="center"
             android:text="Geography"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -87,7 +88,7 @@
             android:inputType="textCapSentences"
             android:text="Skip"
             android:textAlignment="center"
-            android:textColor="#E5E5E5"
+            android:textColor="@color/white"
             android:textSize="13sp"
             android:layout_marginBottom="50dp"
             app:layout_constraintBottom_toBottomOf="parent"

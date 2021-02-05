@@ -7,6 +7,7 @@ import androidx.room.Room;
 import kg.nurzhamal.quizapp.core.IHistoryStorage;
 import kg.nurzhamal.quizapp.data.IQuizApiClient;
 import kg.nurzhamal.quizapp.data.QuizApiClient;
+import kg.nurzhamal.quizapp.db.Preference;
 import kg.nurzhamal.quizapp.db.QuizDataBase;
 import kg.nurzhamal.quizapp.ui.history.HistoryStorage;
 
@@ -18,6 +19,7 @@ public class QuizApp extends Application {
     public static IHistoryStorage historyStorage;
     public static QuizRepository repository;
     public static QuizDataBase quizDataBase;
+    public Preference preference;
 
 
     @Override
@@ -36,6 +38,7 @@ public class QuizApp extends Application {
                 .build();
 
         repository = new QuizRepository(quizApiClient, historyStorage);
+        preference = new Preference(this);
     }
     public static QuizApp getInstance(){
         return instance;
@@ -49,5 +52,8 @@ public class QuizApp extends Application {
         return quizDataBase;
     }
 
+    public Preference getPrefs() {
+        return preference;
+    }
 
 }

@@ -1,5 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.QuizApp" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="purple_200">#FFBB86FC</item>
+        <item name="bg_button_color">#6979F8</item>
+        <item name="purple_700">#FF3700B3</item>
+        <item name="teal_200">#FF03DAC5</item>
+        <item name="teal_700">#FF018786</item>
+        <item name="black">#FF000000</item>
+        <item name="white">#FFFFFFFF</item>
+        <item name="blue">#6979F8</item>
+        <item name="bg_button2_color">#4CE2A7</item>
+        <item name="bg_button3_color">#FF4D4D</item>
+        <item name="skip_color">#FF6581</item>
+        <item name="finish_button_color">#4CE2A7</item>
+        <item name="brain_color">#5774FF</item>
+        <item name="progressBarBackground_color">#E0E0E0</item>
+        <item name="progressBar_color">#BE52F2</item>
+        <item name="ic_done_green_color">#4CE2A7</item>
+        <item name="questionF_backColor">#56637b</item>
+        <item name="multiText_color">#84bfbe</item>
+        <item name="background_main_fragment">#FFFFFFFF</item>
+        <item name="background_question_fragment">#FFFFFFFF</item>
+        <item name="background_result_fragment">#FFFFFFFF</item>
+        <item name="background_history_fragment">#FFFFFFFF</item>
+        <item name="background_settings_fragment">#FFFFFFFF</item>
+
+
+    </style>
+
+    <style name="BlueHeart" parent="Theme.QuizApp">
+        <item name="purple_200">#FFBB86FC</item>
+        <item name="bg_button_color">#030830</item>
+        <item name="purple_700">#FF3700B3</item>
+        <item name="teal_200">#FF03DAC5</item>
+        <item name="teal_700">#FF018786</item>
+        <item name="black">#84bfbe</item>
+        <item name="white">#FFFFFFFF</item>
+        <item name="blue">#3D3F50</item>
+        <item name="bg_button2_color">#046A42</item>
+        <item name="bg_button3_color">#DD0D0D</item>
+        <item name="skip_color">#B2F436</item>
+        <item name="finish_button_color">#598171</item>
+        <item name="brain_color">#5774FF</item>
+        <item name="progressBarBackground_color">#E0E0E0</item>
+        <item name="progressBar_color">#71BEE3</item>
+        <item name="ic_done_green_color">#1F6FB5</item>
+        <item name="questionF_backColor">#56637b</item>
+        <item name="multiText_color">#84bfbe</item>
+        <item name="background_main_fragment">#F5CCEDE7</item>
+        <item name="background_question_fragment">#F828E3E3</item>
+        <item name="background_result_fragment">#96AEC1</item>
+        <item name="background_history_fragment">#8FB7E6</item>
+        <item name="background_settings_fragment">#13D8D3</item>
+    </style>
+
+    <style name="OrangeTheme" parent="Theme.QuizApp">
+        <item name="purple_200">#FFBB86FC</item>
+        <item name="bg_button_color">#479329</item>
+        <item name="purple_700">#19B633</item>
+        <item name="teal_200">#FF03DAC5</item>
+        <item name="teal_700">#FF018786</item>
+        <item name="black">#84bfbe</item>
+        <item name="white">#FFFFFFFF</item>
+        <item name="blue">#A0A6DA</item>
+        <item name="bg_button2_color">#046A42</item>
+        <item name="bg_button3_color">#DD0D0D</item>
+        <item name="skip_color">#B2F436</item>
+        <item name="finish_button_color">#598171</item>
+        <item name="brain_color">#5774FF</item>
+        <item name="progressBarBackground_color">#E0E0E0</item>
+        <item name="progressBar_color">#71BEE3</item>
+        <item name="ic_done_green_color">#1F6FB5</item>
+        <item name="questionF_backColor">#56637b</item>
+        <item name="multiText_color">#84bfbe</item>
+        <item name="background_main_fragment">#E4776F</item>
+        <item name="background_question_fragment">#F8E37F28</item>
+        <item name="background_result_fragment">#BAA525</item>
+        <item name="background_history_fragment">#E8EF902C</item>
+        <item name="background_settings_fragment">#D8B713</item>
+    </style>
+
+    <style name="GreenTheme" parent="Theme.QuizApp">
+        <item name="purple_200">#FFBB86FC</item>
+        <item name="bg_button_color">#479329</item>
+        <item name="purple_700">#19B633</item>
+        <item name="teal_200">#FF03DAC5</item>
+        <item name="teal_700">#FF018786</item>
+        <item name="black">#84bfbe</item>
+        <item name="white">#FFFFFFFF</item>
+        <item name="blue">#A0A6DA</item>
+        <item name="bg_button2_color">#046A42</item>
+        <item name="bg_button3_color">#DD0D0D</item>
+        <item name="skip_color">#B2F436</item>
+        <item name="finish_button_color">#598171</item>
+        <item name="brain_color">#5774FF</item>
+        <item name="progressBarBackground_color">#E0E0E0</item>
+        <item name="progressBar_color">#71BEE3</item>
+        <item name="ic_done_green_color">#1F6FB5</item>
+        <item name="questionF_backColor">#56637b</item>
+        <item name="multiText_color">#84bfbe</item>
+        <item name="background_main_fragment">#75BF78</item>
+        <item name="background_question_fragment">#A2C579</item>
+        <item name="background_result_fragment">#BAA525</item>
+        <item name="background_history_fragment">#AABA0C</item>
+        <item name="background_settings_fragment">#A7C584</item>
+    </style>
+
+    <style name="PinkTheme" parent="Theme.QuizApp">
+        <item name="purple_200">#FFBB86FC</item>
+        <item name="bg_button_color">#E91E63</item>
+        <item name="purple_700">#19B633</item>
+        <item name="teal_200">#FF03DAC5</item>
+        <item name="teal_700">#FF018786</item>
+        <item name="black">#300413</item>
+        <item name="white">#FFFFFFFF</item>
+        <item name="blue">#A0A6DA</item>
+        <item name="bg_button2_color">#046A42</item>
+        <item name="bg_button3_color">#DD0D0D</item>
+        <item name="skip_color">#A8063D</item>
+        <item name="finish_button_color">#598171</item>
+        <item name="brain_color">#5774FF</item>
+        <item name="progressBarBackground_color">#5E283A</item>
+        <item name="progressBar_color">#DA1608</item>
+        <item name="ic_done_green_color">#1F6FB5</item>
+        <item name="questionF_backColor">#56637b</item>
+        <item name="multiText_color">#84bfbe</item>
+        <item name="background_main_fragment">#DA90A9</item>
+        <item name="background_question_fragment">#A86079</item>
+        <item name="background_result_fragment">#835162</item>
+        <item name="background_history_fragment">#DCBCC7</item>
+        <item name="background_settings_fragment">#8C5B6C</item>
+    </style>
+
+    <style name="YellowTheme" parent="Theme.QuizApp">
+        <item name="purple_200">#FFBB86FC</item>
+        <item name="bg_button_color">#4CAF50</item>
+        <item name="purple_700">#19B633</item>
+        <item name="teal_200">#FF03DAC5</item>
+        <item name="teal_700">#FF018786</item>
+        <item name="black">#300413</item>
+        <item name="white">#FFFFFFFF</item>
+        <item name="blue">#A0A6DA</item>
+        <item name="bg_button2_color">#046A42</item>
+        <item name="bg_button3_color">#DD0D0D</item>
+        <item name="skip_color">#A8063D</item>
+        <item name="finish_button_color">#598171</item>
+        <item name="brain_color">#5774FF</item>
+        <item name="progressBarBackground_color">#5E283A</item>
+        <item name="progressBar_color">#DA1608</item>
+        <item name="ic_done_green_color">#1F6FB5</item>
+        <item name="questionF_backColor">#56637b</item>
+        <item name="multiText_color">#84bfbe</item>
+        <item name="background_main_fragment">#E6D74D</item>
+        <item name="background_question_fragment">#EFC341</item>
+        <item name="background_result_fragment">#DCD175</item>
+        <item name="background_history_fragment">#C5D342</item>
+        <item name="background_settings_fragment">#ECDC58</item>
+    </style>
+
 
     <style name="difficulty">
         <item name="android:textSize">12sp</item>

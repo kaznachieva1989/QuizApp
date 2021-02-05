@@ -14,6 +14,7 @@ public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(QuizApp.getInstance().getPrefs().getTheme());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 

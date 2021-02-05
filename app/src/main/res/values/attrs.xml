@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="purple_200" format="color"/>
+    <attr name="bg_button_color" format="color"/>
+    <attr name="purple_700" format="color"/>
+    <attr name="teal_200" format="color"/>
+    <attr name="teal_700" format="color"/>
+    <attr name="black" format="color"/>
+    <attr name="white" format="color"/>
+    <attr name="blue" format="color"/>
+    <attr name="bg_button2_color" format="color"/>
+    <attr name="bg_button3_color" format="color"/>
+    <attr name="skip_color" format="color"/>
+    <attr name="finish_button_color" format="color"/>
+    <attr name="brain_color" format="color"/>
+    <attr name="progressBarBackground_color" format="color"/>
+    <attr name="progressBar_color" format="color"/>
+    <attr name="ic_done_green_color" format="color"/>
+    <attr name="multiText_color" format="color"/>
+    <attr name="questionF_backColor" format="color"/>
+    <attr name="background_main_fragment" format="color"/>
+    <attr name="background_question_fragment" format="color"/>
+    <attr name="background_result_fragment" format="color"/>
+    <attr name="background_history_fragment" format="color"/>
+    <attr name="background_settings_fragment" format="color"/>
+
+
+</resources>

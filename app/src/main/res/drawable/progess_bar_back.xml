@@ -4,7 +4,7 @@
     <item android:id="@android:id/background">
         <shape android:shape="rectangle">
             <corners android:radius="3dp"/>
-            <solid android:color="#E0E0E0"/>
+            <solid android:color="?attr/progressBarBackground_color"/>
         </shape>
     </item>
 
@@ -12,7 +12,7 @@
         <clip>
             <shape android:shape="rectangle">
                 <corners android:radius="3dp"/>
-                <solid android:color="#BE52F2"/>
+                <solid android:color="?attr/progressBar_color"/>
             </shape>
         </clip>
     </item>

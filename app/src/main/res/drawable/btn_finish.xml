@@ -16,7 +16,7 @@
 
         <path
             android:pathData="M0 0V40H90V0"
-            android:fillColor="#4CE2A7"
+            android:fillColor="@color/finish_button_color"
             />
 
     </group>

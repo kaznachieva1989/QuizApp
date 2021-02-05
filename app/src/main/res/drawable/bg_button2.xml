@@ -2,7 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape>
-            <solid android:color="#4CE2A7" />
+            <solid android:color="?attr/bg_button2_color" />
             <corners android:radius="10dp" />
         </shape>
     </item>

@@ -3,7 +3,6 @@ package kg.nurzhamal.quizapp.ui.history;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import kg.nurzhamal.quizapp.QuizApp;

@@ -41,6 +41,7 @@ public class QuestionsActivity extends AppCompatActivity implements QuestionsAda
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(QuizApp.getInstance().getPrefs().getTheme());
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_questions);
 

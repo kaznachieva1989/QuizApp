@@ -2,6 +2,6 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
     <corners android:radius="6dp"/>
-    <solid android:color="#FF4D4D"/>
+    <solid android:color="?attr/bg_button3_color"/>
 
 </shape>

@@ -2,7 +2,6 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="questionAmount"
             type="kg.nurzhamal.quizapp.QuestionsActivity" />
@@ -20,6 +19,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?attr/background_history_fragment"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView

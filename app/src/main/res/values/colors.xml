@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="bg_button_color">#6979F8</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#6979F8</color>
+    <color name="bg_button2_color">#4CE2A7</color>
+    <color name="bg_button3_color">#FF4D4D</color>
+    <color name="skip_color">#FF6581</color>
+    <color name="finish_button_color">#4CE2A7</color>
+    <color name="brain_color">#5774FF</color>
+    <color name="progressBarBackground_color">#E0E0E0</color>
+    <color name="progressBar_color">#BE52F2</color>
+    <color name="ic_done_green_color">#4CE2A7</color>
+    <color name="questionF_backColor">#56637b</color>
+    <color name="multiText_color">#84bfbe</color>
+    <color name="background_main_fragment">#FFFFFFFF</color>
+    <color name="background_question_fragment">#FFFFFFFF</color>
+    <color name="background_result_fragment">#FFFFFFFF</color>
+    <color name="background_history_fragment">#FFFFFFFF</color>
+    <color name="background_settings_fragment">#FFFFFFFF</color>
 </resources>
